@@ -1,0 +1,70 @@
+{
+    "level": [
+        {
+            "type": "spritesheet",
+            "key": "player",
+            "url": "assets/images/urlspritesheet.png",
+            "frameWidth": 100,
+            "frameHeight": 100,
+            "frameMax": -1,
+            "margin": 0,
+            "spacing": 0
+        },
+        {
+            "type": "image",
+            "key": "BG",
+            "url": "assets/images/background.png",
+            "overwrite": false
+        },
+        {
+            "type": "atlas",
+            "key": "objects",
+            "textureURL": "assets/textures/objects.png",
+            "atlasURL": "assets/textures/objects.json",
+            "format": "TEXTURE_ATLAS_JSON_HASH"
+        },
+        {
+            "type": "atlas",
+            "key": "tiles",
+            "textureURL": "assets/textures/tiles.png",
+            "atlasURL": "assets/textures/tiles.json",
+            "format": "TEXTURE_ATLAS_JSON_HASH"
+        },
+        {
+            "type": "script",
+            "key": "scene1",
+            "url": "scenes/Scene1.js"
+        },
+        {
+            "type": "spritesheet",
+            "key": "roman",
+            "url": "assets/images/roman.png",
+            "frameWidth": 100,
+            "frameHeight": 100,
+            "frameMax": -1,
+            "margin": 0,
+            "spacing": 0
+        },
+        {
+            "type": "atlas",
+            "key": "spikes",
+            "textureURL": "assets/textures/spikes.png",
+            "atlasURL": "assets/textures/tiles.json",
+            "format": "TEXTURE_ATLAS_JSON_HASH"
+        },
+        {
+            "type": "atlas",
+            "key": "grassTile",
+            "textureURL": "assets/textures/grassblock.png",
+            "atlasURL": "assets/textures/tiles.json",
+            "format": "TEXTURE_ATLAS_JSON_HASH"
+        }
+    ],
+    "meta": {
+        "generated": "1496351125421",
+        "app": "Phaser Editor",
+        "url": "http://phasereditor.boniatillo.com",
+        "version": "1.0",
+        "copyright": "Arian Fornaris (c) 2015,2016"
+    }
+}

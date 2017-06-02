@@ -1,0 +1,252 @@
+{
+  "settings": {
+    "sceneWidth": 1200,
+    "sceneHeight": 800,
+    "generateOnSave": true,
+    "enableStepping": true,
+    "stepWidth": 128,
+    "stepHeight": 93
+  },
+  "world": {
+    "type": "group",
+    "id": "96d4bfe6-09bc-49e6-bc07-c2ce82240e99",
+    "info": {
+      "editorName": "Scene1",
+      "children": [
+        {
+          "type": "image",
+          "id": "f6ebe47c-8e7b-4ccb-8bea-71ae51aab58c",
+          "asset": "0",
+          "info": {
+            "editorName": "BG",
+            "scale.x": 1.011611846221028,
+            "scale.y": 1.015214909017638
+          }
+        },
+        {
+          "type": "spritesheet",
+          "id": "2f50e7ee-d1bc-4886-a174-9a9778b5e43f",
+          "asset": "1",
+          "info": {
+            "editorName": "player",
+            "editorPublic": true,
+            "x": 640,
+            "y": 279,
+            "animations": [
+              {
+                "name": "walk",
+                "frameRate": 4,
+                "loop": true,
+                "frames": [
+                  "1",
+                  "2",
+                  "3",
+                  "2"
+                ]
+              },
+              {
+                "name": "idle",
+                "frameRate": 60,
+                "frames": ["0"]
+              },
+              {
+                "name": "attack",
+                "frameRate": 4,
+                "loop": true,
+                "killOnComplete": true,
+                "frames": [
+                  "4",
+                  "5",
+                  "4"
+                ]
+              }
+            ],
+            "body": {
+              "type": "ARCADE_RECT",
+              "collideWorldBounds": true
+            }
+          }
+        },
+        {
+          "type": "group",
+          "id": "f13a43b7-b2d5-4839-9a12-8f0b487d2779",
+          "info": {
+            "editorName": "CollisionLayer",
+            "editorPublic": true,
+            "physicsGroup": true,
+            "children": [
+              {
+                "type": "tileSprite",
+                "id": "5ad20905-da7e-425b-b280-6d170a721327",
+                "asset": "2",
+                "info": {
+                  "editorName": "physics1",
+                  "x": 2048,
+                  "y": 465,
+                  "width": 384,
+                  "height": 25
+                }
+              },
+              {
+                "type": "tileSprite",
+                "id": "a3b35b2b-ccd6-4afd-b2b6-7545d3215d14",
+                "asset": "2",
+                "info": {
+                  "editorName": "physics",
+                  "x": 384,
+                  "y": 465,
+                  "width": 1280,
+                  "height": 25
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "group",
+          "id": "041e7430-dec5-403d-9a80-681b82f175c5",
+          "info": {
+            "editorName": "Plat",
+            "editorPublic": true,
+            "physicsGroup": true,
+            "children": [
+              {
+                "type": "tileSprite",
+                "id": "3356a284-37bb-4bf9-9e31-f53f6e653ec7",
+                "asset": "3",
+                "info": {
+                  "editorName": "_5",
+                  "x": 2304,
+                  "y": 465,
+                  "body": {"type": "ARCADE_RECT"},
+                  "width": 128,
+                  "height": 93
+                }
+              },
+              {
+                "type": "tileSprite",
+                "id": "b5d3eaca-6497-4e6c-90fa-aea5c6e1897e",
+                "asset": "4",
+                "info": {
+                  "editorName": "_41",
+                  "x": 2048,
+                  "y": 465,
+                  "width": 256,
+                  "height": 93
+                }
+              },
+              {
+                "type": "tileSprite",
+                "id": "3fedc69c-3b64-45d7-9e6c-374f068268cd",
+                "asset": "4",
+                "info": {
+                  "editorName": "_4",
+                  "x": 384,
+                  "y": 465,
+                  "body": {"type": "ARCADE_RECT"},
+                  "width": 1280,
+                  "height": 96.60000610351562
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "group",
+          "id": "869e5a1f-0048-4de9-a890-26ad5d6a79bb",
+          "info": {
+            "editorName": "Hazards",
+            "editorPublic": true,
+            "physicsGroup": true,
+            "children": [{
+              "type": "tileSprite",
+              "id": "cf8c42bb-737e-46ef-9ae3-cd6efdf1d2ad",
+              "asset": "5",
+              "info": {
+                "editorName": "spike1",
+                "editorPublic": true,
+                "x": 1664,
+                "y": 465,
+                "width": 384,
+                "height": 93
+              }
+            }]
+          }
+        },
+        {
+          "type": "spritesheet",
+          "id": "533d49ea-b496-4a56-be33-35d4212be8b4",
+          "asset": "6",
+          "info": {
+            "editorName": "roman",
+            "editorPublic": true,
+            "x": 1408,
+            "y": 279,
+            "animations": [
+              {
+                "name": "walk",
+                "frameRate": 4,
+                "loop": true,
+                "frames": [
+                  "1",
+                  "2",
+                  "3",
+                  "2"
+                ]
+              },
+              {
+                "name": "idle",
+                "frameRate": 4,
+                "frames": ["0"]
+              }
+            ],
+            "body": {"type": "ARCADE_RECT"}
+          }
+        }
+      ]
+    }
+  },
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/assets-pack.json",
+      "section": "level",
+      "asset": "BG"
+    },
+    "1": {
+      "file": "WebContent/assets/assets-pack.json",
+      "section": "level",
+      "asset": "player",
+      "sprite": "0"
+    },
+    "2": {
+      "file": "WebContent/assets/assets-pack.json",
+      "section": "level",
+      "asset": "tiles",
+      "sprite": "physics"
+    },
+    "3": {
+      "file": "WebContent/assets/assets-pack.json",
+      "section": "level",
+      "asset": "tiles",
+      "sprite": "15"
+    },
+    "4": {
+      "file": "WebContent/assets/assets-pack.json",
+      "section": "level",
+      "asset": "tiles",
+      "sprite": "14"
+    },
+    "5": {
+      "file": "WebContent/assets/assets-pack.json",
+      "section": "level",
+      "asset": "spikes",
+      "sprite": "11"
+    },
+    "6": {
+      "file": "WebContent/assets/assets-pack.json",
+      "section": "level",
+      "asset": "roman",
+      "sprite": "0"
+    }
+  }
+}
