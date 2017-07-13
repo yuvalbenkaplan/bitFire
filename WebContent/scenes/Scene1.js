@@ -14,48 +14,1453 @@ function Scene1(aGame, aParent) {
 
 	/* --- pre-init-end --- */
 
-	var BG = this.game.add.sprite(0, 0, 'BG', null, this);
-	BG.scale.setTo(1.011611846221028, 1.015214909017638);
+	var CollisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 
-	var player = this.game.add.sprite(640, 279, 'player', 0, this);
+	var CGR001 = this.game.add.sprite(2176, 704, 'tiles', 'physics', CollisionLayer);
+	CGR001.scale.setTo(69.12, 1.0);
+
+	var CGR000 = this.game.add.sprite(0, 704, 'tiles', 'physics', CollisionLayer);
+	CGR000.scale.setTo(69.12, 1.0);
+
+	var CPL000 = this.game.add.sprite(3136, 512, 'tiles', 'physics', CollisionLayer);
+	CPL000.scale.setTo(23.04, 1.0);
+
+	var CPL001 = this.game.add.sprite(3776, 320, 'tiles', 'physics', CollisionLayer);
+	CPL001.scale.setTo(23.04, 1.0);
+
+	var CGR002 = this.game.add.sprite(4288, 704, 'tiles', 'physics', CollisionLayer);
+	CGR002.scale.setTo(33.28, 1.0);
+
+	var COB001 = this.game.add.sprite(4480, 512, 'tiles', 'physics', CollisionLayer);
+	COB001.scale.setTo(2.56, 7.68);
+
+	var CPL002 = this.game.add.sprite(5504, 512, 'tiles', 'physics', CollisionLayer);
+	CPL002.scale.setTo(23.04, 1.0);
+
+	var CGR003 = this.game.add.sprite(5632, 768, 'tiles', 'physics', CollisionLayer);
+	CGR003.scale.setTo(33.28, 1.0);
+
+	var PST000A = this.game.add.sprite(6464, 704, 'tiles', 'physics', CollisionLayer);
+	PST000A.scale.setTo(2.56, 2.56);
+
+	var PST000B = this.game.add.sprite(6528, 640, 'tiles', 'physics', CollisionLayer);
+	PST000B.scale.setTo(2.56, 2.56);
+
+	var PST000C = this.game.add.sprite(6592, 576, 'tiles', 'physics', CollisionLayer);
+	PST000C.scale.setTo(2.56, 2.56);
+
+	var PST000D = this.game.add.sprite(6656, 512, 'tiles', 'physics', CollisionLayer);
+	PST000D.scale.setTo(2.56, 2.56);
+
+	var PST000E = this.game.add.sprite(6720, 448, 'tiles', 'physics', CollisionLayer);
+	PST000E.scale.setTo(2.56, 2.56);
+
+	var PST000F = this.game.add.sprite(6784, 384, 'tiles', 'physics', CollisionLayer);
+	PST000F.scale.setTo(2.56, 15.36);
+
+	var CPL003 = this.game.add.sprite(7104, 256, 'tiles', 'physics', CollisionLayer);
+	CPL003.scale.setTo(23.04, 1.0);
+
+	var COB000 = this.game.add.sprite(2304, 512, 'tiles', 'physics', CollisionLayer);
+	COB000.scale.setTo(2.56, 7.68);
+
+	this.game.add.sprite(0, 0, 'urlbgscrolling', null, this);
+
+	this.game.add.sprite(0, 0, 'model', null, this);
+
+	var player = this.game.add.sprite(192, 512, 'player', 0, this);
 	player.animations.add('walk', [1, 2, 3, 2], 4, true);
 	player.animations.add('idle', [0], 60, false);
 	var player_attack = player.animations.add('attack', [4, 5, 4], 4, true);
 	player_attack.killOnComplete = true;
 	this.game.physics.arcade.enable(player);
-	player.body.collideWorldBounds = true;
-
-	var CollisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
-
-	this.game.add.tileSprite(2048, 465, 384, 25, 'tiles', 'physics', CollisionLayer);
-
-	this.game.add.tileSprite(384, 465, 1280, 25, 'tiles', 'physics', CollisionLayer);
-
-	var Plat = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
-
-	this.game.add.tileSprite(2304, 465, 128, 93, 'tiles', '15', Plat);
-
-	this.game.add.tileSprite(2048, 465, 256, 93, 'tiles', '14', Plat);
-
-	this.game.add.tileSprite(384, 465, 1280, 97, 'tiles', '14', Plat);
+	player.body.allowRotation = false;
 
 	var Hazards = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 
-	var spike1 = this.game.add.tileSprite(1664, 465, 384, 93, 'spikes', '11', Hazards);
+	var H000 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Hazards);
 
-	var roman = this.game.add.sprite(1408, 279, 'roman', 0, this);
+	this.game.add.sprite(2688, 640, 'spikepng', null, H000);
+
+	this.game.add.sprite(2816, 640, 'spikepng', null, H000);
+
+	this.game.add.sprite(2752, 640, 'spikepng', null, H000);
+
+	var H001 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Hazards);
+
+	var firetilespritesheet11 = this.game.add.sprite(4800, 640, 'firetilespritesheet', 0, H001);
+	firetilespritesheet11.animations.add('Flame', [0, 1, 2, 3], 30, true);
+
+	var firetilespritesheet1 = this.game.add.sprite(4864, 640, 'firetilespritesheet', 0, H001);
+	firetilespritesheet1.animations.add('Flame', [0, 1, 2, 3], 30, true);
+
+	var H002 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Hazards);
+
+	var firetilespritesheet12 = this.game.add.sprite(4288, 256, 'firetilespritesheet', 0, H002);
+	firetilespritesheet12.animations.add('Flame', [0, 1, 2, 3], 30, true);
+
+	var firetilespritesheet111 = this.game.add.sprite(4224, 256, 'firetilespritesheet', 0, H002);
+	firetilespritesheet111.animations.add('Flame', [0, 1, 2, 3], 30, true);
+
+	var H003 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Hazards);
+
+	this.game.add.sprite(7424, 576, 'spikepng', null, H003);
+
+	this.game.add.sprite(7488, 576, 'spikepng', null, H003);
+
+	this.game.add.sprite(7360, 576, 'spikepng', null, H003);
+
+	this.game.add.sprite(5952, 384, 'HazardPlaceholder', null, this);
+
+	this.game.add.sprite(3712, 576, 'HazardPlaceholder', null, this);
+
+	var roman = this.game.add.sprite(1408, 512, 'roman', 0, this);
 	roman.animations.add('walk', [1, 2, 3, 2], 4, true);
 	roman.animations.add('idle', [0], 4, false);
 	this.game.physics.arcade.enable(roman);
 
+	var Plat = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
+
+	var GR000 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	this.game.add.tileSprite(1664, 704, 64, 64, 'Ground', 2, GR000);
+
+	this.game.add.tileSprite(1600, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1536, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1472, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1408, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1344, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1280, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1216, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1152, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1088, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(1024, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(960, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(896, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(832, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(768, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(704, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(640, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(576, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(512, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(448, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(384, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(320, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(256, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(192, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(128, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(64, 704, 64, 64, 'Ground', 1, GR000);
+
+	this.game.add.tileSprite(0, 704, 64, 64, 'Ground', 0, GR000);
+
+	var GR001 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	this.game.add.tileSprite(3840, 704, 64, 64, 'Ground', 2, GR001);
+
+	this.game.add.tileSprite(3776, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3712, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3648, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3584, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3520, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3456, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3392, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3328, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3264, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3200, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3136, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3072, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(3008, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2944, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2880, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2816, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2752, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2688, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2624, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2560, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2496, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2432, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2368, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2304, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2240, 704, 64, 64, 'Ground', 1, GR001);
+
+	this.game.add.tileSprite(2176, 704, 64, 64, 'Ground', 0, GR001);
+
+	var OB000 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var spritesheet = this.game.add.sprite(2304, 512, 'spritesheet', 1, OB000);
+	spritesheet.body.immovable = true;
+	spritesheet.body.allowRotation = false;
+	spritesheet.body.allowGravity = false;
+
+	var spritesheet1 = this.game.add.sprite(2304, 576, 'spritesheet', 1, OB000);
+	spritesheet1.body.immovable = true;
+	spritesheet1.body.allowRotation = false;
+	spritesheet1.body.allowGravity = false;
+
+	var spritesheet2 = this.game.add.tileSprite(2304, 640, 64, 64, 'spritesheet', 1, OB000);
+	spritesheet2.body.immovable = true;
+	spritesheet2.body.allowRotation = false;
+	spritesheet2.body.allowGravity = false;
+
+	var PL000 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var Ground211 = this.game.add.tileSprite(3648, 512, 64, 64, 'Ground', 2, PL000);
+	Ground211.body.immovable = true;
+	Ground211.body.allowRotation = false;
+	Ground211.body.allowGravity = false;
+	Ground211.body.checkCollision.none = true;
+
+	var Ground12411 = this.game.add.tileSprite(3584, 512, 64, 64, 'Ground', 1, PL000);
+	Ground12411.body.immovable = true;
+	Ground12411.body.allowRotation = false;
+	Ground12411.body.allowGravity = false;
+	Ground12411.body.checkCollision.none = true;
+
+	var Ground1511 = this.game.add.tileSprite(3520, 512, 64, 64, 'Ground', 1, PL000);
+	Ground1511.body.immovable = true;
+	Ground1511.body.allowRotation = false;
+	Ground1511.body.allowGravity = false;
+	Ground1511.body.checkCollision.none = true;
+
+	var Ground1411 = this.game.add.tileSprite(3456, 512, 64, 64, 'Ground', 1, PL000);
+	Ground1411.body.immovable = true;
+	Ground1411.body.allowRotation = false;
+	Ground1411.body.allowGravity = false;
+	Ground1411.body.checkCollision.none = true;
+
+	var Ground1311 = this.game.add.tileSprite(3392, 512, 64, 64, 'Ground', 1, PL000);
+	Ground1311.body.immovable = true;
+	Ground1311.body.allowRotation = false;
+	Ground1311.body.allowGravity = false;
+	Ground1311.body.checkCollision.none = true;
+
+	var Ground1251 = this.game.add.tileSprite(3328, 512, 64, 64, 'Ground', 1, PL000);
+	Ground1251.body.immovable = true;
+	Ground1251.body.allowRotation = false;
+	Ground1251.body.allowGravity = false;
+	Ground1251.body.checkCollision.none = true;
+
+	var Ground11101 = this.game.add.tileSprite(3264, 512, 64, 64, 'Ground', 1, PL000);
+	Ground11101.body.immovable = true;
+	Ground11101.body.allowRotation = false;
+	Ground11101.body.allowGravity = false;
+	Ground11101.body.checkCollision.none = true;
+
+	var Ground1261 = this.game.add.tileSprite(3200, 512, 64, 64, 'Ground', 1, PL000);
+	Ground1261.body.immovable = true;
+	Ground1261.body.allowRotation = false;
+	Ground1261.body.allowGravity = false;
+	Ground1261.body.checkCollision.none = true;
+
+	var Ground31 = this.game.add.tileSprite(3136, 512, 64, 64, 'Ground', 0, PL000);
+	Ground31.body.immovable = true;
+	Ground31.body.allowRotation = false;
+	Ground31.body.allowGravity = false;
+
+	var PL001 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var Ground2111 = this.game.add.tileSprite(4288, 320, 64, 64, 'Ground', 2, PL001);
+	Ground2111.body.immovable = true;
+	Ground2111.body.allowRotation = false;
+	Ground2111.body.allowGravity = false;
+
+	var Ground124111 = this.game.add.tileSprite(4224, 320, 64, 64, 'Ground', 1, PL001);
+	Ground124111.body.immovable = true;
+	Ground124111.body.allowRotation = false;
+	Ground124111.body.allowGravity = false;
+	Ground124111.body.checkCollision.none = true;
+
+	var Ground15111 = this.game.add.tileSprite(4160, 320, 64, 64, 'Ground', 1, PL001);
+	Ground15111.body.immovable = true;
+	Ground15111.body.allowRotation = false;
+	Ground15111.body.allowGravity = false;
+	Ground15111.body.checkCollision.none = true;
+
+	var Ground14111 = this.game.add.tileSprite(4096, 320, 64, 64, 'Ground', 1, PL001);
+	Ground14111.body.immovable = true;
+	Ground14111.body.allowRotation = false;
+	Ground14111.body.allowGravity = false;
+	Ground14111.body.checkCollision.none = true;
+
+	var Ground13111 = this.game.add.tileSprite(4032, 320, 64, 64, 'Ground', 1, PL001);
+	Ground13111.body.immovable = true;
+	Ground13111.body.allowRotation = false;
+	Ground13111.body.allowGravity = false;
+	Ground13111.body.checkCollision.none = true;
+
+	var Ground12511 = this.game.add.tileSprite(3968, 320, 64, 64, 'Ground', 1, PL001);
+	Ground12511.body.immovable = true;
+	Ground12511.body.allowRotation = false;
+	Ground12511.body.allowGravity = false;
+	Ground12511.body.checkCollision.none = true;
+
+	var Ground111011 = this.game.add.tileSprite(3904, 320, 64, 64, 'Ground', 1, PL001);
+	Ground111011.body.immovable = true;
+	Ground111011.body.allowRotation = false;
+	Ground111011.body.allowGravity = false;
+	Ground111011.body.checkCollision.none = true;
+
+	var Ground12611 = this.game.add.tileSprite(3840, 320, 64, 64, 'Ground', 1, PL001);
+	Ground12611.body.immovable = true;
+	Ground12611.body.allowRotation = false;
+	Ground12611.body.allowGravity = false;
+	Ground12611.body.checkCollision.none = true;
+
+	var Ground311 = this.game.add.tileSprite(3776, 320, 64, 64, 'Ground', 0, PL001);
+	Ground311.body.immovable = true;
+	Ground311.body.allowRotation = false;
+	Ground311.body.allowGravity = false;
+
+	var GR002 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var Ground21111 = this.game.add.tileSprite(5056, 704, 64, 64, 'Ground', 2, GR002);
+	Ground21111.body.immovable = true;
+	Ground21111.body.allowRotation = false;
+	Ground21111.body.allowGravity = false;
+
+	var Ground1241111 = this.game.add.tileSprite(4736, 704, 64, 64, 'Ground', 1, GR002);
+	Ground1241111.body.immovable = true;
+	Ground1241111.body.allowRotation = false;
+	Ground1241111.body.allowGravity = false;
+	Ground1241111.body.checkCollision.none = true;
+
+	var Ground151111 = this.game.add.tileSprite(4672, 704, 64, 64, 'Ground', 1, GR002);
+	Ground151111.body.immovable = true;
+	Ground151111.body.allowRotation = false;
+	Ground151111.body.allowGravity = false;
+	Ground151111.body.checkCollision.none = true;
+
+	var Ground141111 = this.game.add.tileSprite(4608, 704, 64, 64, 'Ground', 1, GR002);
+	Ground141111.body.immovable = true;
+	Ground141111.body.allowRotation = false;
+	Ground141111.body.allowGravity = false;
+	Ground141111.body.checkCollision.none = true;
+
+	var Ground131111 = this.game.add.tileSprite(4544, 704, 64, 64, 'Ground', 1, GR002);
+	Ground131111.body.immovable = true;
+	Ground131111.body.allowRotation = false;
+	Ground131111.body.allowGravity = false;
+	Ground131111.body.checkCollision.none = true;
+
+	var Ground125111 = this.game.add.tileSprite(4480, 704, 64, 64, 'Ground', 1, GR002);
+	Ground125111.body.immovable = true;
+	Ground125111.body.allowRotation = false;
+	Ground125111.body.allowGravity = false;
+	Ground125111.body.checkCollision.none = true;
+
+	var Ground1110111 = this.game.add.tileSprite(4416, 704, 64, 64, 'Ground', 1, GR002);
+	Ground1110111.body.immovable = true;
+	Ground1110111.body.allowRotation = false;
+	Ground1110111.body.allowGravity = false;
+	Ground1110111.body.checkCollision.none = true;
+
+	var Ground126111 = this.game.add.tileSprite(4352, 704, 64, 64, 'Ground', 1, GR002);
+	Ground126111.body.immovable = true;
+	Ground126111.body.allowRotation = false;
+	Ground126111.body.allowGravity = false;
+	Ground126111.body.checkCollision.none = true;
+
+	var Ground12411111 = this.game.add.tileSprite(4992, 704, 64, 64, 'Ground', 1, GR002);
+	Ground12411111.body.immovable = true;
+	Ground12411111.body.allowRotation = false;
+	Ground12411111.body.allowGravity = false;
+	Ground12411111.body.checkCollision.none = true;
+
+	var Ground1511111 = this.game.add.tileSprite(4928, 704, 64, 64, 'Ground', 1, GR002);
+	Ground1511111.body.immovable = true;
+	Ground1511111.body.allowRotation = false;
+	Ground1511111.body.allowGravity = false;
+	Ground1511111.body.checkCollision.none = true;
+
+	var Ground1411111 = this.game.add.tileSprite(4864, 704, 64, 64, 'Ground', 1, GR002);
+	Ground1411111.body.immovable = true;
+	Ground1411111.body.allowRotation = false;
+	Ground1411111.body.allowGravity = false;
+	Ground1411111.body.checkCollision.none = true;
+
+	var Ground1311111 = this.game.add.tileSprite(4800, 704, 64, 64, 'Ground', 1, GR002);
+	Ground1311111.body.immovable = true;
+	Ground1311111.body.allowRotation = false;
+	Ground1311111.body.allowGravity = false;
+	Ground1311111.body.checkCollision.none = true;
+
+	var Ground3111 = this.game.add.tileSprite(4288, 704, 64, 64, 'Ground', 0, GR002);
+	Ground3111.body.immovable = true;
+	Ground3111.body.allowRotation = false;
+	Ground3111.body.allowGravity = false;
+
+	var OB001 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var spritesheet3 = this.game.add.sprite(4480, 512, 'spritesheet', 1, OB001);
+	spritesheet3.body.immovable = true;
+	spritesheet3.body.allowRotation = false;
+	spritesheet3.body.allowGravity = false;
+
+	var spritesheet11 = this.game.add.sprite(4480, 576, 'spritesheet', 1, OB001);
+	spritesheet11.body.immovable = true;
+	spritesheet11.body.allowRotation = false;
+	spritesheet11.body.allowGravity = false;
+
+	var spritesheet21 = this.game.add.tileSprite(4480, 640, 64, 64, 'spritesheet', 1, OB001);
+	spritesheet21.body.immovable = true;
+	spritesheet21.body.allowRotation = false;
+	spritesheet21.body.allowGravity = false;
+
+	var GR003 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var Ground12411112 = this.game.add.tileSprite(6080, 768, 64, 64, 'Ground', 1, GR003);
+	Ground12411112.body.immovable = true;
+	Ground12411112.body.allowRotation = false;
+	Ground12411112.body.allowGravity = false;
+	Ground12411112.body.checkCollision.none = true;
+
+	var Ground1511112 = this.game.add.tileSprite(6016, 768, 64, 64, 'Ground', 1, GR003);
+	Ground1511112.body.immovable = true;
+	Ground1511112.body.allowRotation = false;
+	Ground1511112.body.allowGravity = false;
+	Ground1511112.body.checkCollision.none = true;
+
+	var Ground1411112 = this.game.add.tileSprite(5952, 768, 64, 64, 'Ground', 1, GR003);
+	Ground1411112.body.immovable = true;
+	Ground1411112.body.allowRotation = false;
+	Ground1411112.body.allowGravity = false;
+	Ground1411112.body.checkCollision.none = true;
+
+	var Ground1311112 = this.game.add.tileSprite(5888, 768, 64, 64, 'Ground', 1, GR003);
+	Ground1311112.body.immovable = true;
+	Ground1311112.body.allowRotation = false;
+	Ground1311112.body.allowGravity = false;
+	Ground1311112.body.checkCollision.none = true;
+
+	var Ground1251111 = this.game.add.tileSprite(5824, 768, 64, 64, 'Ground', 1, GR003);
+	Ground1251111.body.immovable = true;
+	Ground1251111.body.allowRotation = false;
+	Ground1251111.body.allowGravity = false;
+	Ground1251111.body.checkCollision.none = true;
+
+	var Ground11101111 = this.game.add.tileSprite(5760, 768, 64, 64, 'Ground', 1, GR003);
+	Ground11101111.body.immovable = true;
+	Ground11101111.body.allowRotation = false;
+	Ground11101111.body.allowGravity = false;
+	Ground11101111.body.checkCollision.none = true;
+
+	var Ground1261111 = this.game.add.tileSprite(5696, 768, 64, 64, 'Ground', 1, GR003);
+	Ground1261111.body.immovable = true;
+	Ground1261111.body.allowRotation = false;
+	Ground1261111.body.allowGravity = false;
+	Ground1261111.body.checkCollision.none = true;
+
+	var Ground124111111 = this.game.add.tileSprite(6336, 768, 64, 64, 'Ground', 1, GR003);
+	Ground124111111.body.immovable = true;
+	Ground124111111.body.allowRotation = false;
+	Ground124111111.body.allowGravity = false;
+	Ground124111111.body.checkCollision.none = true;
+
+	var Ground15111111 = this.game.add.tileSprite(6272, 768, 64, 64, 'Ground', 1, GR003);
+	Ground15111111.body.immovable = true;
+	Ground15111111.body.allowRotation = false;
+	Ground15111111.body.allowGravity = false;
+	Ground15111111.body.checkCollision.none = true;
+
+	var Ground14111111 = this.game.add.tileSprite(6208, 768, 64, 64, 'Ground', 1, GR003);
+	Ground14111111.body.immovable = true;
+	Ground14111111.body.allowRotation = false;
+	Ground14111111.body.allowGravity = false;
+	Ground14111111.body.checkCollision.none = true;
+
+	var Ground13111111 = this.game.add.tileSprite(6144, 768, 64, 64, 'Ground', 1, GR003);
+	Ground13111111.body.immovable = true;
+	Ground13111111.body.allowRotation = false;
+	Ground13111111.body.allowGravity = false;
+	Ground13111111.body.checkCollision.none = true;
+
+	var Ground1241111112 = this.game.add.tileSprite(6400, 768, 64, 64, 'Ground', 1, GR003);
+	Ground1241111112.body.immovable = true;
+	Ground1241111112.body.allowRotation = false;
+	Ground1241111112.body.allowGravity = false;
+	Ground1241111112.body.checkCollision.none = true;
+
+	var Ground31111 = this.game.add.tileSprite(5632, 768, 64, 64, 'Ground', 0, GR003);
+	Ground31111.body.immovable = true;
+	Ground31111.body.allowRotation = false;
+	Ground31111.body.allowGravity = false;
+
+	var PL002 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var Ground2111111 = this.game.add.tileSprite(6016, 512, 64, 64, 'Ground', 2, PL002);
+	Ground2111111.body.immovable = true;
+	Ground2111111.body.allowRotation = false;
+	Ground2111111.body.allowGravity = false;
+
+	var Ground13111121 = this.game.add.tileSprite(5760, 512, 64, 64, 'Ground', 1, PL002);
+	Ground13111121.body.immovable = true;
+	Ground13111121.body.allowRotation = false;
+	Ground13111121.body.allowGravity = false;
+	Ground13111121.body.checkCollision.none = true;
+
+	var Ground12511111 = this.game.add.tileSprite(5696, 512, 64, 64, 'Ground', 1, PL002);
+	Ground12511111.body.immovable = true;
+	Ground12511111.body.allowRotation = false;
+	Ground12511111.body.allowGravity = false;
+	Ground12511111.body.checkCollision.none = true;
+
+	var Ground111011111 = this.game.add.tileSprite(5632, 512, 64, 64, 'Ground', 1, PL002);
+	Ground111011111.body.immovable = true;
+	Ground111011111.body.allowRotation = false;
+	Ground111011111.body.allowGravity = false;
+	Ground111011111.body.checkCollision.none = true;
+
+	var Ground12611111 = this.game.add.tileSprite(5568, 512, 64, 64, 'Ground', 1, PL002);
+	Ground12611111.body.immovable = true;
+	Ground12611111.body.allowRotation = false;
+	Ground12611111.body.allowGravity = false;
+	Ground12611111.body.checkCollision.none = true;
+
+	var Ground1241111111 = this.game.add.tileSprite(5952, 512, 64, 64, 'Ground', 1, PL002);
+	Ground1241111111.body.immovable = true;
+	Ground1241111111.body.allowRotation = false;
+	Ground1241111111.body.allowGravity = false;
+	Ground1241111111.body.checkCollision.none = true;
+
+	var Ground151111111 = this.game.add.tileSprite(5888, 512, 64, 64, 'Ground', 1, PL002);
+	Ground151111111.body.immovable = true;
+	Ground151111111.body.allowRotation = false;
+	Ground151111111.body.allowGravity = false;
+	Ground151111111.body.checkCollision.none = true;
+
+	var Ground141111111 = this.game.add.tileSprite(5824, 512, 64, 64, 'Ground', 1, PL002);
+	Ground141111111.body.immovable = true;
+	Ground141111111.body.allowRotation = false;
+	Ground141111111.body.allowGravity = false;
+	Ground141111111.body.checkCollision.none = true;
+
+	var Ground311111 = this.game.add.tileSprite(5504, 512, 64, 64, 'Ground', 0, PL002);
+	Ground311111.body.immovable = true;
+	Ground311111.body.allowRotation = false;
+	Ground311111.body.allowGravity = false;
+
+	var ST000 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var Ground311112 = this.game.add.tileSprite(6784, 384, 64, 64, 'Ground', 0, ST000);
+	Ground311112.body.immovable = true;
+	Ground311112.body.allowRotation = false;
+	Ground311112.body.allowGravity = false;
+
+	var Ground3111121 = this.game.add.tileSprite(6720, 448, 64, 64, 'Ground', 0, ST000);
+	Ground3111121.body.immovable = true;
+	Ground3111121.body.allowRotation = false;
+	Ground3111121.body.allowGravity = false;
+
+	var Ground3111122 = this.game.add.tileSprite(6656, 512, 64, 64, 'Ground', 0, ST000);
+	Ground3111122.body.immovable = true;
+	Ground3111122.body.allowRotation = false;
+	Ground3111122.body.allowGravity = false;
+
+	var Ground3111123 = this.game.add.tileSprite(6592, 576, 64, 64, 'Ground', 0, ST000);
+	Ground3111123.body.immovable = true;
+	Ground3111123.body.allowRotation = false;
+	Ground3111123.body.allowGravity = false;
+
+	var Ground3111124 = this.game.add.tileSprite(6528, 640, 64, 64, 'Ground', 0, ST000);
+	Ground3111124.body.immovable = true;
+	Ground3111124.body.allowRotation = false;
+	Ground3111124.body.allowGravity = false;
+
+	var Ground3111125 = this.game.add.tileSprite(6464, 704, 64, 64, 'Ground', 0, ST000);
+	Ground3111125.body.immovable = true;
+	Ground3111125.body.allowRotation = false;
+	Ground3111125.body.allowGravity = false;
+
+	var GR004 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var Ground211111 = this.game.add.tileSprite(7680, 640, 64, 64, 'Ground', 2, GR004);
+	Ground211111.body.immovable = true;
+	Ground211111.body.allowRotation = false;
+	Ground211111.body.allowGravity = false;
+
+	var Ground12411113 = this.game.add.tileSprite(7488, 640, 64, 64, 'Ground', 1, GR004);
+	Ground12411113.body.immovable = true;
+	Ground12411113.body.allowRotation = false;
+	Ground12411113.body.allowGravity = false;
+	Ground12411113.body.checkCollision.none = true;
+
+	var Ground1511113 = this.game.add.tileSprite(7424, 640, 64, 64, 'Ground', 1, GR004);
+	Ground1511113.body.immovable = true;
+	Ground1511113.body.allowRotation = false;
+	Ground1511113.body.allowGravity = false;
+	Ground1511113.body.checkCollision.none = true;
+
+	var Ground1411113 = this.game.add.tileSprite(7360, 640, 64, 64, 'Ground', 1, GR004);
+	Ground1411113.body.immovable = true;
+	Ground1411113.body.allowRotation = false;
+	Ground1411113.body.allowGravity = false;
+	Ground1411113.body.checkCollision.none = true;
+
+	var Ground1311113 = this.game.add.tileSprite(7296, 640, 64, 64, 'Ground', 1, GR004);
+	Ground1311113.body.immovable = true;
+	Ground1311113.body.allowRotation = false;
+	Ground1311113.body.allowGravity = false;
+	Ground1311113.body.checkCollision.none = true;
+
+	var Ground1251112 = this.game.add.tileSprite(7232, 640, 64, 64, 'Ground', 1, GR004);
+	Ground1251112.body.immovable = true;
+	Ground1251112.body.allowRotation = false;
+	Ground1251112.body.allowGravity = false;
+	Ground1251112.body.checkCollision.none = true;
+
+	var Ground11101112 = this.game.add.tileSprite(7168, 640, 64, 64, 'Ground', 1, GR004);
+	Ground11101112.body.immovable = true;
+	Ground11101112.body.allowRotation = false;
+	Ground11101112.body.allowGravity = false;
+	Ground11101112.body.checkCollision.none = true;
+
+	var Ground1261112 = this.game.add.tileSprite(7104, 640, 64, 64, 'Ground', 1, GR004);
+	Ground1261112.body.immovable = true;
+	Ground1261112.body.allowRotation = false;
+	Ground1261112.body.allowGravity = false;
+	Ground1261112.body.checkCollision.none = true;
+
+	var Ground14111112 = this.game.add.tileSprite(7616, 640, 64, 64, 'Ground', 1, GR004);
+	Ground14111112.body.immovable = true;
+	Ground14111112.body.allowRotation = false;
+	Ground14111112.body.allowGravity = false;
+	Ground14111112.body.checkCollision.none = true;
+
+	var Ground13111112 = this.game.add.tileSprite(7552, 640, 64, 64, 'Ground', 1, GR004);
+	Ground13111112.body.immovable = true;
+	Ground13111112.body.allowRotation = false;
+	Ground13111112.body.allowGravity = false;
+	Ground13111112.body.checkCollision.none = true;
+
+	var Ground31112 = this.game.add.tileSprite(7040, 640, 64, 64, 'Ground', 0, GR004);
+	Ground31112.body.immovable = true;
+	Ground31112.body.allowRotation = false;
+	Ground31112.body.allowGravity = false;
+
+	var PL003 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Plat);
+
+	var Ground21111111 = this.game.add.tileSprite(7616, 256, 64, 64, 'Ground', 2, PL003);
+	Ground21111111.body.immovable = true;
+	Ground21111111.body.allowRotation = false;
+	Ground21111111.body.allowGravity = false;
+
+	var Ground131111211 = this.game.add.tileSprite(7360, 256, 64, 64, 'Ground', 1, PL003);
+	Ground131111211.body.immovable = true;
+	Ground131111211.body.allowRotation = false;
+	Ground131111211.body.allowGravity = false;
+	Ground131111211.body.checkCollision.none = true;
+
+	var Ground125111111 = this.game.add.tileSprite(7296, 256, 64, 64, 'Ground', 1, PL003);
+	Ground125111111.body.immovable = true;
+	Ground125111111.body.allowRotation = false;
+	Ground125111111.body.allowGravity = false;
+	Ground125111111.body.checkCollision.none = true;
+
+	var Ground1110111111 = this.game.add.tileSprite(7232, 256, 64, 64, 'Ground', 1, PL003);
+	Ground1110111111.body.immovable = true;
+	Ground1110111111.body.allowRotation = false;
+	Ground1110111111.body.allowGravity = false;
+	Ground1110111111.body.checkCollision.none = true;
+
+	var Ground126111111 = this.game.add.tileSprite(7168, 256, 64, 64, 'Ground', 1, PL003);
+	Ground126111111.body.immovable = true;
+	Ground126111111.body.allowRotation = false;
+	Ground126111111.body.allowGravity = false;
+	Ground126111111.body.checkCollision.none = true;
+
+	var Ground12411111111 = this.game.add.tileSprite(7552, 256, 64, 64, 'Ground', 1, PL003);
+	Ground12411111111.body.immovable = true;
+	Ground12411111111.body.allowRotation = false;
+	Ground12411111111.body.allowGravity = false;
+	Ground12411111111.body.checkCollision.none = true;
+
+	var Ground1511111111 = this.game.add.tileSprite(7488, 256, 64, 64, 'Ground', 1, PL003);
+	Ground1511111111.body.immovable = true;
+	Ground1511111111.body.allowRotation = false;
+	Ground1511111111.body.allowGravity = false;
+	Ground1511111111.body.checkCollision.none = true;
+
+	var Ground1411111111 = this.game.add.tileSprite(7424, 256, 64, 64, 'Ground', 1, PL003);
+	Ground1411111111.body.immovable = true;
+	Ground1411111111.body.allowRotation = false;
+	Ground1411111111.body.allowGravity = false;
+	Ground1411111111.body.checkCollision.none = true;
+
+	var Ground3111111 = this.game.add.tileSprite(7104, 256, 64, 64, 'Ground', 0, PL003);
+	Ground3111111.body.immovable = true;
+	Ground3111111.body.allowRotation = false;
+	Ground3111111.body.allowGravity = false;
+
+	var Water = this.game.add.group(this);
+
+	var W001 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Water);
+
+	var watersprite21 = this.game.add.tileSprite(1792, 768, 64, 64, 'watersprite2', null, W001);
+	watersprite21.body.immovable = true;
+	watersprite21.body.allowRotation = false;
+	watersprite21.body.allowGravity = false;
+
+	var watersprite22 = this.game.add.tileSprite(1856, 768, 64, 64, 'watersprite2', null, W001);
+	watersprite22.body.immovable = true;
+	watersprite22.body.allowRotation = false;
+	watersprite22.body.allowGravity = false;
+
+	var watersprite23 = this.game.add.tileSprite(1920, 768, 64, 64, 'watersprite2', null, W001);
+	watersprite23.body.immovable = true;
+	watersprite23.body.allowRotation = false;
+	watersprite23.body.allowGravity = false;
+
+	var watersprite24 = this.game.add.tileSprite(1984, 768, 64, 64, 'watersprite2', null, W001);
+	watersprite24.body.immovable = true;
+	watersprite24.body.allowRotation = false;
+	watersprite24.body.allowGravity = false;
+
+	var watersprite25 = this.game.add.tileSprite(2048, 768, 64, 64, 'watersprite2', null, W001);
+	watersprite25.body.immovable = true;
+	watersprite25.body.allowRotation = false;
+	watersprite25.body.allowGravity = false;
+
+	var watersprite26 = this.game.add.tileSprite(2112, 768, 64, 64, 'watersprite2', null, W001);
+	watersprite26.body.immovable = true;
+	watersprite26.body.allowRotation = false;
+	watersprite26.body.allowGravity = false;
+
+	var watersprite2 = this.game.add.tileSprite(1728, 768, 64, 64, 'watersprite2', null, W001);
+	watersprite2.body.immovable = true;
+	watersprite2.body.allowRotation = false;
+	watersprite2.body.allowGravity = false;
+
+	var W002 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Water);
+
+	var watersprite271 = this.game.add.tileSprite(3968, 768, 64, 64, 'watersprite2', null, W002);
+	watersprite271.body.immovable = true;
+	watersprite271.body.allowRotation = false;
+	watersprite271.body.allowGravity = false;
+
+	var watersprite272 = this.game.add.tileSprite(4032, 768, 64, 64, 'watersprite2', null, W002);
+	watersprite272.body.immovable = true;
+	watersprite272.body.allowRotation = false;
+	watersprite272.body.allowGravity = false;
+
+	var watersprite273 = this.game.add.tileSprite(4096, 768, 64, 64, 'watersprite2', null, W002);
+	watersprite273.body.immovable = true;
+	watersprite273.body.allowRotation = false;
+	watersprite273.body.allowGravity = false;
+
+	var watersprite274 = this.game.add.tileSprite(4160, 768, 64, 64, 'watersprite2', null, W002);
+	watersprite274.body.immovable = true;
+	watersprite274.body.allowRotation = false;
+	watersprite274.body.allowGravity = false;
+
+	var watersprite275 = this.game.add.tileSprite(4224, 768, 64, 64, 'watersprite2', null, W002);
+	watersprite275.body.immovable = true;
+	watersprite275.body.allowRotation = false;
+	watersprite275.body.allowGravity = false;
+
+	var watersprite27 = this.game.add.tileSprite(3904, 768, 64, 64, 'watersprite2', null, W002);
+	watersprite27.body.immovable = true;
+	watersprite27.body.allowRotation = false;
+	watersprite27.body.allowGravity = false;
+
+	var W003 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Water);
+
+	var watersprite2711 = this.game.add.tileSprite(5184, 768, 64, 64, 'watersprite2', null, W003);
+	watersprite2711.body.immovable = true;
+	watersprite2711.body.allowRotation = false;
+	watersprite2711.body.allowGravity = false;
+
+	var watersprite2721 = this.game.add.tileSprite(5248, 768, 64, 64, 'watersprite2', null, W003);
+	watersprite2721.body.immovable = true;
+	watersprite2721.body.allowRotation = false;
+	watersprite2721.body.allowGravity = false;
+
+	var watersprite2731 = this.game.add.tileSprite(5312, 768, 64, 64, 'watersprite2', null, W003);
+	watersprite2731.body.immovable = true;
+	watersprite2731.body.allowRotation = false;
+	watersprite2731.body.allowGravity = false;
+
+	var watersprite2741 = this.game.add.tileSprite(5376, 768, 64, 64, 'watersprite2', null, W003);
+	watersprite2741.body.immovable = true;
+	watersprite2741.body.allowRotation = false;
+	watersprite2741.body.allowGravity = false;
+
+	var watersprite2751 = this.game.add.tileSprite(5440, 768, 64, 64, 'watersprite2', null, W003);
+	watersprite2751.body.immovable = true;
+	watersprite2751.body.allowRotation = false;
+	watersprite2751.body.allowGravity = false;
+
+	var watersprite27411 = this.game.add.tileSprite(5504, 768, 64, 64, 'watersprite2', null, W003);
+	watersprite27411.body.immovable = true;
+	watersprite27411.body.allowRotation = false;
+	watersprite27411.body.allowGravity = false;
+
+	var watersprite27511 = this.game.add.tileSprite(5568, 768, 64, 64, 'watersprite2', null, W003);
+	watersprite27511.body.immovable = true;
+	watersprite27511.body.allowRotation = false;
+	watersprite27511.body.allowGravity = false;
+
+	var watersprite276 = this.game.add.tileSprite(5120, 768, 64, 64, 'watersprite2', null, W003);
+	watersprite276.body.immovable = true;
+	watersprite276.body.allowRotation = false;
+	watersprite276.body.allowGravity = false;
+
+	var W004 = this.game.add.physicsGroup(Phaser.Physics.ARCADE, Water);
+
+	this.game.add.tileSprite(6848, 768, 64, 64, 'watersprite2', null, W004);
+
+	this.game.add.tileSprite(6912, 768, 64, 64, 'watersprite2', null, W004);
+
+	this.game.add.tileSprite(6976, 768, 64, 64, 'watersprite2', null, W004);
+
+	this.game.add.tileSprite(6848, 704, 64, 64, 'watersprite1', null, W004);
+
+	this.game.add.tileSprite(6912, 704, 64, 64, 'watersprite1', null, W004);
+
+	this.game.add.tileSprite(6976, 704, 64, 64, 'watersprite1', null, W004);
+
+	var GroundBase = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
+
+	var Ground4 = this.game.add.tileSprite(0, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4.body.immovable = true;
+	Ground4.body.allowRotation = false;
+	Ground4.body.allowGravity = false;
+
+	var Ground41 = this.game.add.tileSprite(64, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground41.body.immovable = true;
+	Ground41.body.allowRotation = false;
+	Ground41.body.allowGravity = false;
+
+	var Ground42 = this.game.add.tileSprite(128, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42.body.immovable = true;
+	Ground42.body.allowRotation = false;
+	Ground42.body.allowGravity = false;
+
+	var Ground43 = this.game.add.tileSprite(192, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground43.body.immovable = true;
+	Ground43.body.allowRotation = false;
+	Ground43.body.allowGravity = false;
+
+	var Ground44 = this.game.add.tileSprite(256, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground44.body.immovable = true;
+	Ground44.body.allowRotation = false;
+	Ground44.body.allowGravity = false;
+
+	var Ground45 = this.game.add.tileSprite(320, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground45.body.immovable = true;
+	Ground45.body.allowRotation = false;
+	Ground45.body.allowGravity = false;
+
+	var Ground46 = this.game.add.tileSprite(384, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground46.body.immovable = true;
+	Ground46.body.allowRotation = false;
+	Ground46.body.allowGravity = false;
+
+	var Ground47 = this.game.add.tileSprite(448, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground47.body.immovable = true;
+	Ground47.body.allowRotation = false;
+	Ground47.body.allowGravity = false;
+
+	var Ground48 = this.game.add.tileSprite(512, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground48.body.immovable = true;
+	Ground48.body.allowRotation = false;
+	Ground48.body.allowGravity = false;
+
+	var Ground49 = this.game.add.tileSprite(576, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground49.body.immovable = true;
+	Ground49.body.allowRotation = false;
+	Ground49.body.allowGravity = false;
+
+	var Ground410 = this.game.add.tileSprite(640, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground410.body.immovable = true;
+	Ground410.body.allowRotation = false;
+	Ground410.body.allowGravity = false;
+
+	var Ground411 = this.game.add.tileSprite(704, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground411.body.immovable = true;
+	Ground411.body.allowRotation = false;
+	Ground411.body.allowGravity = false;
+
+	var Ground412 = this.game.add.tileSprite(768, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground412.body.immovable = true;
+	Ground412.body.allowRotation = false;
+	Ground412.body.allowGravity = false;
+
+	var Ground413 = this.game.add.tileSprite(832, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground413.body.immovable = true;
+	Ground413.body.allowRotation = false;
+	Ground413.body.allowGravity = false;
+
+	var Ground414 = this.game.add.tileSprite(896, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground414.body.immovable = true;
+	Ground414.body.allowRotation = false;
+	Ground414.body.allowGravity = false;
+
+	var Ground415 = this.game.add.tileSprite(960, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground415.body.immovable = true;
+	Ground415.body.allowRotation = false;
+	Ground415.body.allowGravity = false;
+
+	var Ground416 = this.game.add.tileSprite(1024, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground416.body.immovable = true;
+	Ground416.body.allowRotation = false;
+	Ground416.body.allowGravity = false;
+
+	var Ground417 = this.game.add.tileSprite(1088, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground417.body.immovable = true;
+	Ground417.body.allowRotation = false;
+	Ground417.body.allowGravity = false;
+
+	var Ground418 = this.game.add.tileSprite(1152, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground418.body.immovable = true;
+	Ground418.body.allowRotation = false;
+	Ground418.body.allowGravity = false;
+
+	var Ground419 = this.game.add.tileSprite(1216, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground419.body.immovable = true;
+	Ground419.body.allowRotation = false;
+	Ground419.body.allowGravity = false;
+
+	var Ground420 = this.game.add.tileSprite(1280, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground420.body.immovable = true;
+	Ground420.body.allowRotation = false;
+	Ground420.body.allowGravity = false;
+
+	var Ground421 = this.game.add.tileSprite(1344, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground421.body.immovable = true;
+	Ground421.body.allowRotation = false;
+	Ground421.body.allowGravity = false;
+
+	var Ground422 = this.game.add.tileSprite(1408, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground422.body.immovable = true;
+	Ground422.body.allowRotation = false;
+	Ground422.body.allowGravity = false;
+
+	var Ground423 = this.game.add.tileSprite(1472, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground423.body.immovable = true;
+	Ground423.body.allowRotation = false;
+	Ground423.body.allowGravity = false;
+
+	var Ground424 = this.game.add.tileSprite(1536, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground424.body.immovable = true;
+	Ground424.body.allowRotation = false;
+	Ground424.body.allowGravity = false;
+
+	var Ground425 = this.game.add.tileSprite(1600, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground425.body.immovable = true;
+	Ground425.body.allowRotation = false;
+	Ground425.body.allowGravity = false;
+
+	var Ground427 = this.game.add.tileSprite(2176, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground427.body.immovable = true;
+	Ground427.body.allowRotation = false;
+	Ground427.body.allowGravity = false;
+
+	var Ground4110 = this.game.add.tileSprite(2240, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4110.body.immovable = true;
+	Ground4110.body.allowRotation = false;
+	Ground4110.body.allowGravity = false;
+
+	var Ground428 = this.game.add.tileSprite(2304, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground428.body.immovable = true;
+	Ground428.body.allowRotation = false;
+	Ground428.body.allowGravity = false;
+
+	var Ground431 = this.game.add.tileSprite(2368, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground431.body.immovable = true;
+	Ground431.body.allowRotation = false;
+	Ground431.body.allowGravity = false;
+
+	var Ground451 = this.game.add.tileSprite(2496, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground451.body.immovable = true;
+	Ground451.body.allowRotation = false;
+	Ground451.body.allowGravity = false;
+
+	var Ground441 = this.game.add.tileSprite(2432, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground441.body.immovable = true;
+	Ground441.body.allowRotation = false;
+	Ground441.body.allowGravity = false;
+
+	var Ground461 = this.game.add.tileSprite(2560, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground461.body.immovable = true;
+	Ground461.body.allowRotation = false;
+	Ground461.body.allowGravity = false;
+
+	var Ground471 = this.game.add.tileSprite(2624, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground471.body.immovable = true;
+	Ground471.body.allowRotation = false;
+	Ground471.body.allowGravity = false;
+
+	var Ground481 = this.game.add.tileSprite(2688, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground481.body.immovable = true;
+	Ground481.body.allowRotation = false;
+	Ground481.body.allowGravity = false;
+
+	var Ground491 = this.game.add.tileSprite(2752, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground491.body.immovable = true;
+	Ground491.body.allowRotation = false;
+	Ground491.body.allowGravity = false;
+
+	var Ground4101 = this.game.add.tileSprite(2816, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4101.body.immovable = true;
+	Ground4101.body.allowRotation = false;
+	Ground4101.body.allowGravity = false;
+
+	var Ground4111 = this.game.add.tileSprite(2880, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4111.body.immovable = true;
+	Ground4111.body.allowRotation = false;
+	Ground4111.body.allowGravity = false;
+
+	var Ground4121 = this.game.add.tileSprite(2944, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4121.body.immovable = true;
+	Ground4121.body.allowRotation = false;
+	Ground4121.body.allowGravity = false;
+
+	var Ground4131 = this.game.add.tileSprite(3008, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4131.body.immovable = true;
+	Ground4131.body.allowRotation = false;
+	Ground4131.body.allowGravity = false;
+
+	var Ground4141 = this.game.add.tileSprite(3072, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4141.body.immovable = true;
+	Ground4141.body.allowRotation = false;
+	Ground4141.body.allowGravity = false;
+
+	var Ground4151 = this.game.add.tileSprite(3136, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4151.body.immovable = true;
+	Ground4151.body.allowRotation = false;
+	Ground4151.body.allowGravity = false;
+
+	var Ground4161 = this.game.add.tileSprite(3200, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4161.body.immovable = true;
+	Ground4161.body.allowRotation = false;
+	Ground4161.body.allowGravity = false;
+
+	var Ground4171 = this.game.add.tileSprite(3264, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4171.body.immovable = true;
+	Ground4171.body.allowRotation = false;
+	Ground4171.body.allowGravity = false;
+
+	var Ground4181 = this.game.add.tileSprite(3328, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4181.body.immovable = true;
+	Ground4181.body.allowRotation = false;
+	Ground4181.body.allowGravity = false;
+
+	var Ground4191 = this.game.add.tileSprite(3392, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4191.body.immovable = true;
+	Ground4191.body.allowRotation = false;
+	Ground4191.body.allowGravity = false;
+
+	var Ground4201 = this.game.add.tileSprite(3456, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4201.body.immovable = true;
+	Ground4201.body.allowRotation = false;
+	Ground4201.body.allowGravity = false;
+
+	var Ground4211 = this.game.add.tileSprite(3520, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4211.body.immovable = true;
+	Ground4211.body.allowRotation = false;
+	Ground4211.body.allowGravity = false;
+
+	var Ground4221 = this.game.add.tileSprite(3584, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4221.body.immovable = true;
+	Ground4221.body.allowRotation = false;
+	Ground4221.body.allowGravity = false;
+
+	var Ground4231 = this.game.add.tileSprite(3648, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4231.body.immovable = true;
+	Ground4231.body.allowRotation = false;
+	Ground4231.body.allowGravity = false;
+
+	var Ground4241 = this.game.add.tileSprite(3712, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4241.body.immovable = true;
+	Ground4241.body.allowRotation = false;
+	Ground4241.body.allowGravity = false;
+
+	var Ground4251 = this.game.add.tileSprite(3776, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4251.body.immovable = true;
+	Ground4251.body.allowRotation = false;
+	Ground4251.body.allowGravity = false;
+
+	var Ground4261 = this.game.add.tileSprite(3840, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261.body.immovable = true;
+	Ground4261.body.allowRotation = false;
+	Ground4261.body.allowGravity = false;
+
+	var Ground41411 = this.game.add.tileSprite(4288, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground41411.body.immovable = true;
+	Ground41411.body.allowRotation = false;
+	Ground41411.body.allowGravity = false;
+
+	var Ground41511 = this.game.add.tileSprite(4352, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground41511.body.immovable = true;
+	Ground41511.body.allowRotation = false;
+	Ground41511.body.allowGravity = false;
+
+	var Ground41611 = this.game.add.tileSprite(4416, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground41611.body.immovable = true;
+	Ground41611.body.allowRotation = false;
+	Ground41611.body.allowGravity = false;
+
+	var Ground41711 = this.game.add.tileSprite(4480, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground41711.body.immovable = true;
+	Ground41711.body.allowRotation = false;
+	Ground41711.body.allowGravity = false;
+
+	var Ground41811 = this.game.add.tileSprite(4544, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground41811.body.immovable = true;
+	Ground41811.body.allowRotation = false;
+	Ground41811.body.allowGravity = false;
+
+	var Ground41911 = this.game.add.tileSprite(4608, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground41911.body.immovable = true;
+	Ground41911.body.allowRotation = false;
+	Ground41911.body.allowGravity = false;
+
+	var Ground42011 = this.game.add.tileSprite(4672, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42011.body.immovable = true;
+	Ground42011.body.allowRotation = false;
+	Ground42011.body.allowGravity = false;
+
+	var Ground42111 = this.game.add.tileSprite(4736, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42111.body.immovable = true;
+	Ground42111.body.allowRotation = false;
+	Ground42111.body.allowGravity = false;
+
+	var Ground42211 = this.game.add.tileSprite(4800, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42211.body.immovable = true;
+	Ground42211.body.allowRotation = false;
+	Ground42211.body.allowGravity = false;
+
+	var Ground42311 = this.game.add.tileSprite(4864, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42311.body.immovable = true;
+	Ground42311.body.allowRotation = false;
+	Ground42311.body.allowGravity = false;
+
+	var Ground42411 = this.game.add.tileSprite(4928, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42411.body.immovable = true;
+	Ground42411.body.allowRotation = false;
+	Ground42411.body.allowGravity = false;
+
+	var Ground42511 = this.game.add.tileSprite(4992, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42511.body.immovable = true;
+	Ground42511.body.allowRotation = false;
+	Ground42511.body.allowGravity = false;
+
+	var Ground42611 = this.game.add.tileSprite(5056, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611.body.immovable = true;
+	Ground42611.body.allowRotation = false;
+	Ground42611.body.allowGravity = false;
+
+	var Ground426111 = this.game.add.tileSprite(6464, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground426111.body.immovable = true;
+	Ground426111.body.allowRotation = false;
+	Ground426111.body.allowGravity = false;
+
+	var Ground426112 = this.game.add.tileSprite(6528, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground426112.body.immovable = true;
+	Ground426112.body.allowRotation = false;
+	Ground426112.body.allowGravity = false;
+
+	var Ground426113 = this.game.add.tileSprite(6784, 448, 64, 64, 'Ground', 4, GroundBase);
+	Ground426113.body.immovable = true;
+	Ground426113.body.allowRotation = false;
+	Ground426113.body.allowGravity = false;
+
+	var Ground426114 = this.game.add.tileSprite(6528, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground426114.body.immovable = true;
+	Ground426114.body.allowRotation = false;
+	Ground426114.body.allowGravity = false;
+
+	var Ground426115 = this.game.add.tileSprite(6592, 640, 64, 64, 'Ground', 4, GroundBase);
+	Ground426115.body.immovable = true;
+	Ground426115.body.allowRotation = false;
+	Ground426115.body.allowGravity = false;
+
+	var Ground426116 = this.game.add.tileSprite(6592, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground426116.body.immovable = true;
+	Ground426116.body.allowRotation = false;
+	Ground426116.body.allowGravity = false;
+
+	var Ground426117 = this.game.add.tileSprite(6592, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground426117.body.immovable = true;
+	Ground426117.body.allowRotation = false;
+	Ground426117.body.allowGravity = false;
+
+	var Ground426118 = this.game.add.tileSprite(6656, 576, 64, 64, 'Ground', 4, GroundBase);
+	Ground426118.body.immovable = true;
+	Ground426118.body.allowRotation = false;
+	Ground426118.body.allowGravity = false;
+
+	var Ground426119 = this.game.add.tileSprite(6656, 640, 64, 64, 'Ground', 4, GroundBase);
+	Ground426119.body.immovable = true;
+	Ground426119.body.allowRotation = false;
+	Ground426119.body.allowGravity = false;
+
+	var Ground4261110 = this.game.add.tileSprite(6656, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261110.body.immovable = true;
+	Ground4261110.body.allowRotation = false;
+	Ground4261110.body.allowGravity = false;
+
+	var Ground4261111 = this.game.add.tileSprite(6656, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261111.body.immovable = true;
+	Ground4261111.body.allowRotation = false;
+	Ground4261111.body.allowGravity = false;
+
+	var Ground4261112 = this.game.add.tileSprite(6720, 512, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261112.body.immovable = true;
+	Ground4261112.body.allowRotation = false;
+	Ground4261112.body.allowGravity = false;
+
+	var Ground4261113 = this.game.add.tileSprite(6784, 512, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261113.body.immovable = true;
+	Ground4261113.body.allowRotation = false;
+	Ground4261113.body.allowGravity = false;
+
+	var Ground4261114 = this.game.add.tileSprite(6720, 576, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261114.body.immovable = true;
+	Ground4261114.body.allowRotation = false;
+	Ground4261114.body.allowGravity = false;
+
+	var Ground4261115 = this.game.add.tileSprite(6784, 576, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261115.body.immovable = true;
+	Ground4261115.body.allowRotation = false;
+	Ground4261115.body.allowGravity = false;
+
+	var Ground4261116 = this.game.add.tileSprite(6720, 640, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261116.body.immovable = true;
+	Ground4261116.body.allowRotation = false;
+	Ground4261116.body.allowGravity = false;
+
+	var Ground4261117 = this.game.add.tileSprite(6784, 640, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261117.body.immovable = true;
+	Ground4261117.body.allowRotation = false;
+	Ground4261117.body.allowGravity = false;
+
+	var Ground4261118 = this.game.add.tileSprite(6720, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261118.body.immovable = true;
+	Ground4261118.body.allowRotation = false;
+	Ground4261118.body.allowGravity = false;
+
+	var Ground4261119 = this.game.add.tileSprite(6784, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261119.body.immovable = true;
+	Ground4261119.body.allowRotation = false;
+	Ground4261119.body.allowGravity = false;
+
+	var Ground4261120 = this.game.add.tileSprite(6784, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261120.body.immovable = true;
+	Ground4261120.body.allowRotation = false;
+	Ground4261120.body.allowGravity = false;
+
+	var Ground4261121 = this.game.add.tileSprite(6720, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261121.body.immovable = true;
+	Ground4261121.body.allowRotation = false;
+	Ground4261121.body.allowGravity = false;
+
+	var Ground4261122 = this.game.add.tileSprite(7040, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261122.body.immovable = true;
+	Ground4261122.body.allowRotation = false;
+	Ground4261122.body.allowGravity = false;
+
+	var Ground4261141 = this.game.add.tileSprite(7040, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261141.body.immovable = true;
+	Ground4261141.body.allowRotation = false;
+	Ground4261141.body.allowGravity = false;
+
+	var Ground4261161 = this.game.add.tileSprite(7104, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261161.body.immovable = true;
+	Ground4261161.body.allowRotation = false;
+	Ground4261161.body.allowGravity = false;
+
+	var Ground4261171 = this.game.add.tileSprite(7104, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261171.body.immovable = true;
+	Ground4261171.body.allowRotation = false;
+	Ground4261171.body.allowGravity = false;
+
+	var Ground42611101 = this.game.add.tileSprite(7168, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611101.body.immovable = true;
+	Ground42611101.body.allowRotation = false;
+	Ground42611101.body.allowGravity = false;
+
+	var Ground42611111 = this.game.add.tileSprite(7168, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611111.body.immovable = true;
+	Ground42611111.body.allowRotation = false;
+	Ground42611111.body.allowGravity = false;
+
+	var Ground42611181 = this.game.add.tileSprite(7232, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611181.body.immovable = true;
+	Ground42611181.body.allowRotation = false;
+	Ground42611181.body.allowGravity = false;
+
+	var Ground42611191 = this.game.add.tileSprite(7296, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611191.body.immovable = true;
+	Ground42611191.body.allowRotation = false;
+	Ground42611191.body.allowGravity = false;
+
+	var Ground42611201 = this.game.add.tileSprite(7296, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611201.body.immovable = true;
+	Ground42611201.body.allowRotation = false;
+	Ground42611201.body.allowGravity = false;
+
+	var Ground42611211 = this.game.add.tileSprite(7232, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611211.body.immovable = true;
+	Ground42611211.body.allowRotation = false;
+	Ground42611211.body.allowGravity = false;
+
+	var Ground426112111 = this.game.add.tileSprite(7552, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground426112111.body.immovable = true;
+	Ground426112111.body.allowRotation = false;
+	Ground426112111.body.allowGravity = false;
+
+	var Ground426112011 = this.game.add.tileSprite(7616, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground426112011.body.immovable = true;
+	Ground426112011.body.allowRotation = false;
+	Ground426112011.body.allowGravity = false;
+
+	var Ground426111911 = this.game.add.tileSprite(7616, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground426111911.body.immovable = true;
+	Ground426111911.body.allowRotation = false;
+	Ground426111911.body.allowGravity = false;
+
+	var Ground426111811 = this.game.add.tileSprite(7552, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground426111811.body.immovable = true;
+	Ground426111811.body.allowRotation = false;
+	Ground426111811.body.allowGravity = false;
+
+	var Ground426111111 = this.game.add.tileSprite(7488, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground426111111.body.immovable = true;
+	Ground426111111.body.allowRotation = false;
+	Ground426111111.body.allowGravity = false;
+
+	var Ground426111011 = this.game.add.tileSprite(7488, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground426111011.body.immovable = true;
+	Ground426111011.body.allowRotation = false;
+	Ground426111011.body.allowGravity = false;
+
+	var Ground42611711 = this.game.add.tileSprite(7424, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611711.body.immovable = true;
+	Ground42611711.body.allowRotation = false;
+	Ground42611711.body.allowGravity = false;
+
+	var Ground42611611 = this.game.add.tileSprite(7424, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611611.body.immovable = true;
+	Ground42611611.body.allowRotation = false;
+	Ground42611611.body.allowGravity = false;
+
+	var Ground42611411 = this.game.add.tileSprite(7360, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611411.body.immovable = true;
+	Ground42611411.body.allowRotation = false;
+	Ground42611411.body.allowGravity = false;
+
+	var Ground42611221 = this.game.add.tileSprite(7360, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground42611221.body.immovable = true;
+	Ground42611221.body.allowRotation = false;
+	Ground42611221.body.allowGravity = false;
+
+	var Ground4261120111 = this.game.add.tileSprite(7680, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261120111.body.immovable = true;
+	Ground4261120111.body.allowRotation = false;
+	Ground4261120111.body.allowGravity = false;
+
+	var Ground4261119111 = this.game.add.tileSprite(7680, 704, 64, 64, 'Ground', 4, GroundBase);
+	Ground4261119111.body.immovable = true;
+	Ground4261119111.body.allowRotation = false;
+	Ground4261119111.body.allowGravity = false;
+
+	var Ground426 = this.game.add.tileSprite(1664, 768, 64, 64, 'Ground', 4, GroundBase);
+	Ground426.body.immovable = true;
+	Ground426.body.allowRotation = false;
+	Ground426.body.allowGravity = false;
+
+	var Arrows = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
+
+	var arrow = this.game.add.sprite(320, 512, 'arrow', null, Arrows);
+	arrow.anchor.setTo(0.5, 0.5);
+
 	 // public fields
 
-	this.fPlayer = player;
 	this.fCollisionLayer = CollisionLayer;
-	this.fPlat = Plat;
+	this.fCGR001 = CGR001;
+	this.fCGR000 = CGR000;
+	this.fCPL000 = CPL000;
+	this.fCPL001 = CPL001;
+	this.fCGR002 = CGR002;
+	this.fCPL002 = CPL002;
+	this.fCGR003 = CGR003;
+	this.fCPL003 = CPL003;
+	this.fPlayer = player;
 	this.fHazards = Hazards;
-	this.fSpike1 = spike1;
+	this.fH000 = H000;
+	this.fH001 = H001;
+	this.fH002 = H002;
+	this.fH003 = H003;
 	this.fRoman = roman;
+	this.fPlat = Plat;
+	this.fGR000 = GR000;
+	this.fGR001 = GR001;
+	this.fOB000 = OB000;
+	this.fPL000 = PL000;
+	this.fPL001 = PL001;
+	this.fGR002 = GR002;
+	this.fOB001 = OB001;
+	this.fGR003 = GR003;
+	this.fPL002 = PL002;
+	this.fST000 = ST000;
+	this.fGR004 = GR004;
+	this.fPL003 = PL003;
+	this.fW001 = W001;
+	this.fW002 = W002;
+	this.fW003 = W003;
+	this.fW004 = W004;
+	this.fGroundBase = GroundBase;
+	this.fArrows = Arrows;
+	this.fArrow = arrow;
 
 	/* --- post-init-begin --- */
 
